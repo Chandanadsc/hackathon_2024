@@ -181,3 +181,5 @@ class ReportGenerator:
             'matched_passages': len(report_data['similarity']['detailed_matches']),
             'generated_at': report_data['generated_at']
         } 
+    
+    

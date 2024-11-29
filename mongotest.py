@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import time
 
 # Connect to your MongoDB Atlas deployment
-uri = "mongodb+srv://amankumar77:3lS1UV4CTetpHFFZ@hackathon.q7vys.mongodb.net/?retryWrites=true&w=majority&appName=hackathon"
+uri = "mongodb+srv://chandana:Chandana27072005!@cluster0.88owh.mongodb.net/"
 client = MongoClient(uri)
 
 # Access your database and collection

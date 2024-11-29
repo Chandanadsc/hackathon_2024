@@ -66,3 +66,5 @@ class WebScraper:
         
         # Fallback to body content
         return soup.get_text(separator=' ', strip=True) 
+    
+    

@@ -2,15 +2,15 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+from passlib.hash import pbkdf2_sha256
 
 load_dotenv()
 
-MONGODB_URI = "mongodb+srv://amankumar77:3lS1UV4CTetpHFFZ@hackathon.q7vys.mongodb.net/?retryWrites=true&w=majority&appName=hackathon"
+MONGODB_URI = os.getenv("MONGODB_URI")
 DB_NAME = "plagiarism_detector"
 
 # Async client for main operations
 async def get_async_db():
-    print(MONGODB_URI)
     client = AsyncIOMotorClient(MONGODB_URI)
     return client[DB_NAME]
 
@@ -39,3 +39,9 @@ def setup_indexes():
     db.reports.create_index("user_id")
     db.reports.create_index("document_id")
     db.cache.create_index("created_at", expireAfterSeconds=86400)  # 24 hour cache
+
+def hash_password(password: str) -> str:
+    return pbkdf2_sha256.hash(password)
+
+def verify_password(password: str, hashed: str) -> bool:
+    return pbkdf2_sha256.verify(password, hashed)

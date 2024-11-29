@@ -15,5 +15,6 @@ plagiarism_detector/
 ├── tests/
 │   └── __init__.py
 ├── config.py
+|── mongotest.py
 ├── requirements.txt
 └── run.py 
